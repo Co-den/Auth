@@ -1,20 +1,20 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import AuthContext from './store/auth-context';
 import Login from './Components/Auth/Login'
 import Dashboard from './Components/Dashboard/Dashboard';
 import './App.css';
 
 function App() {
-  const isAuth = useSelector(state => state.auth.isAuthenticated);
+  const authCtx = useContext(AuthContext);
  
  
   return (
     <div className='container'>
       <Fragment>
-        {!isAuth && <Login />}
+        {!authCtx.isLoggedIn && <Login />}
         <Routes>
-          {isAuth && <Route path='/' element={<Dashboard />} />}
+          {authCtx.isLoggedIn && <Route path='/' element={<Dashboard />} />}
         </Routes>
       </Fragment>
     </div>

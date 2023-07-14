@@ -1,5 +1,4 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import {useContext} from "react";
 import "./sidebar.css";
 import logo from "../../../Assets/ava-1.jpg";
 import { IoMdSpeedometer } from "react-icons/io";
@@ -9,13 +8,14 @@ import { BsCreditCard2Front, BsQuestionCircle, BsTrophy } from "react-icons/bs";
 import { AiOutlineLogout, AiOutlinePieChart } from "react-icons/ai";
 import { BiTrendingUp } from "react-icons/bi";
 import { MdOutlinePermContactCalendar } from "react-icons/md";
-import { authActions } from "../../Store/ui-slice";
+import AuthContext from "../../../store/auth-context";
 
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
+  const authCtx = useContext(AuthContext);
+  
   const signOutHandler = () => {
-    dispatch(authActions.logOut())
+    authCtx.logout();
   }
   return (
     <div className="sideBar  grid">
