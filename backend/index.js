@@ -9,16 +9,21 @@ import authRoutes from "./routes/auth.route.js";
 
 
 const port = process.env.PORT || 8000;
-const localhost = process.env.LOCALHOST || "127.0.0.1";
+
 
 const app = express();
 const __dirname = path.resolve();
 const allowedOrigins = [
   'http://localhost:5173',
   "https://auth-1-973s.onrender.com",
+<<<<<<< HEAD
   "https://auth-1-973s.onrender.com/api/auth", // production
                 // local dev
 
+=======
+  "https://auth-1-973s.onrender.com/api/auth",
+   "https://authenticationb.netlify.app"
+>>>>>>> f74f83be14cc9161a17871f3d1aceff98fb738a8
 ];
 
 app.use(cors({
@@ -44,6 +49,6 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 	console.log("Connected to the database");
 });
 
-app.listen(port,localhost, () => {
-	console.log(`Server is running on port ${localhost}:${port} `);
+app.listen(port, "0.0.0.0", () => {
+	console.log(`Server is running on port ${port} `);
 });
