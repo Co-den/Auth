@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API_URL =
   import.meta.env.MODE === "development"
-    ? "http://localhost:8000/api/auth"
+    ? "https://auth-1-973s.onrender.com/api/auth"
     : "/api/auth";
 
 axios.defaults.withCredentials = true;
@@ -19,7 +19,7 @@ export const useAuthStore = create((set) => ({
   signup: async (email, password, name) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/signup', {
+      const response = await axios.post('https://auth-1-973s.onrender.com/api/auth/signup', {
         email,
         password,
         name,
@@ -42,7 +42,7 @@ export const useAuthStore = create((set) => ({
   login: async (email, password) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/login', {
+      const response = await axios.post('https://auth-1-973s.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -64,7 +64,7 @@ export const useAuthStore = create((set) => ({
   logout: async () => {
     set({ isLoading: true, error: null });
     try {
-      await axios.post('http://localhost:8000/api/auth/logout');
+      await axios.post('https://auth-1-973s.onrender.com/api/auth/logout');
       set({
         user: null,
         isAuthenticated: false,
@@ -79,7 +79,7 @@ export const useAuthStore = create((set) => ({
   verifyEmail: async (code) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/verify-email', { code });
+      const response = await axios.post('https://auth-1-973s.onrender.com/api/auth/verify-email', { code });
       set({
         user: response.data.user,
         isAuthenticated: true,
@@ -97,7 +97,7 @@ export const useAuthStore = create((set) => ({
   checkAuth: async () => {
     set({ isCheckingAuth: true, error: null });
     try {
-      const response = await axios.get('http://localhost:8000/api/auth/check-auth');
+      const response = await axios.get('https://auth-1-973s.onrender.com/api/auth/check-auth');
       set({
         user: response.data.user,
         isAuthenticated: true,
@@ -110,7 +110,7 @@ export const useAuthStore = create((set) => ({
   forgotPassword: async (email) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/forgot-password', {
+      const response = await axios.post('https://auth-1-973s.onrender.com/api/auth/forgot-password', {
         email,
       });
       set({ message: response.data.message, isLoading: false });
