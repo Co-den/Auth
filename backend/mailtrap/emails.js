@@ -51,8 +51,8 @@ export const sendVerificationEmail = async (email, verificationToken) => {
 
 // Function to send welcome email
 export const sendWelcomeEmail = async (email, name) => {
-  const htmlContent = `<p>Hi ${name},</p><p>Welcome to Auth Company! We are excited to have you on board.</p>`;
-  return sendEmail(email, "Welcome to Auth Company", htmlContent);
+  const htmlContent = `<p>Hi ${name},</p><p>Welcome to AuthDashboard Company! We are excited to have you on board.</p>`;
+  return sendEmail(email, "Welcome to AuthDashboard Company", htmlContent);
 };
 
 // Function to send password reset email
